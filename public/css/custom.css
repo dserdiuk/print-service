@@ -1,0 +1,95 @@
+.main-container {
+    padding-top: 15px;
+}
+
+.print-container {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px #000 solid;
+}
+
+.printer-block {
+    text-align: center;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.printer-block:hover {
+    background: #e2e2e2;
+}
+
+.printer-block.active {
+    background: #e2e2e2;
+}
+
+.printer-block .printer-image {
+    width: 64px;
+    height: 64px;
+}
+
+.printer-block .settings-image {
+    width: 16px;
+    height: 16px;
+    float: right;
+    margin: 7px 7px 0 0;
+}
+
+.pages {
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.page {
+    width: 180px;
+    height: 300px;
+    border: 1px #000 solid;
+    margin-top: 10px;
+    float:left;
+    margin-left: 5px;
+}
+
+.drop-file {
+    width: 100%;
+    height:300px;
+    border: 1px #000000 solid;
+}
+
+
+.dropzone {
+    background: white;
+    border-radius: 5px;
+    border: 2px dashed rgb(0, 135, 247);
+    border-image: none;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-options {
+    margin-top: 140px;
+    width: 84px;
+    margin-left: 50px;
+    padding: 5px;
+    background: #efefef;
+    border-radius: 7px;
+}
+
+.page-options img {
+    width:24px;
+    cursor: pointer;
+    height:24px;
+}
+
+.order-table .actions img {
+    width:24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.order-table .actions .pause {
+    opacity: 0.5;
+}
+
+.order-table .actions .pause.active {
+    opacity: 1.0;
+}

@@ -10,7 +10,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/dropzone.js') }}" defer></script>
+    <script src="{{ asset('js/custom.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +22,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -75,6 +81,82 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <div class="modal" tabindex="-1" id="printer-modal" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Настройки принтера</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="color">Цветность</label>
+                                <select id="color" class="form-control">
+                                    <option value="1">Monochrome</option>
+                                    <option value="2">Nemonochrome</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="format">Формат рулона</label>
+                                <select id="format" class="form-control">
+                                    <option value="841">841</option>
+                                    <option value="842">842</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="quality">Качество печати</label>
+                                <select id="quality" class="form-control">
+                                    <option value="300">300 dpi</option>
+                                    <option value="500">500 dpi</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Тип печати</label>
+                                <select id="type" class="form-control">
+                                    <option value="841">Чертежи</option>
+                                    <option value="842">842</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" tabindex="-1" id="add-printer-modal" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Настройки принтера</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="color">Имя принтера</label>
+                                <input class="form-control printer-name">
+                            </div>w
+                            <div class="form-group">
+                                <label for="color">IP принтера</label>
+                                <input class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary add-printer-action" data-dismiss="modal">Добавить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
